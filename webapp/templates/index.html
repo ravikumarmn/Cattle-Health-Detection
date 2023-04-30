@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cattle Health Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+    <br>
+
+    <div class = "result">
+        <center>
+            <a href="{{ url_for('visualize') }}" type="button" class="btn btn-primary active">Result</a>
+        </center>
+    </div>
+    <h1>Cattle Health Monitoring</h1>
+    <form method="POST" action="/">
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required pattern="\d+(\.\d+)?" title="Enter a valid number">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight" required pattern="\d+(\.\d+)?" title="Enter a valid number">
+          </div>
+          <div class="form-group">
+            <label for="body_condition_score">Body Condition Score:</label>
+            <input type="text" id="body_condition_score" name="body_condition_score" required pattern="\d+(\.\d+)?" title="Enter a valid number">
+          </div>
+          <div class="form-group">
+            <label for="temperature">Temperature:</label>
+            <input type="text" id="temperature" name="temperature" required pattern="\d+(\.\d+)?" title="Enter a valid number">
+          </div>
+          <div class="form-group">
+            <label for="heart_rate">Heart Rate:</label>
+            <input type="text" id="heart_rate" name="heart_rate" required pattern="\d+(\.\d+)?" title="Enter a valid number">
+          </div>
+          <div class="form-group">
+            <label for="milk_yield">Milk Yield:</label>
+            <input type="text" id="milk_yield" name="milk_yield" required pattern="\d+(\.\d+)?" title="Enter a valid number">
+          </div>
+          
+        <div class="form-group">
+            <input type="submit" value="Predict">
+        </div>
+    </form>
+    {% if prediction %}
+        <center>
+            <h2>Predicted Disease: {{ prediction }}</h2>
+        </center>
+        
+    {% endif %}    
+</body>
+</html>

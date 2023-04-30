@@ -1,0 +1,6 @@
+# using python==3.9.0
+matplotlib
+pandas
+seaborn
+scikit-learn
+Flask
